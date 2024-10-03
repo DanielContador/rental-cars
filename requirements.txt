@@ -1,0 +1,17 @@
+npx shadcn@latest init   
+npx shadcn@latest add button                                            
+npm install nextjs-toploader          
+npm install @clerk/nextjs@latest  
+npx shadcn@latest add separator                              
+npx shadcn@latest add sheet
+npm install prisma --save-dev
+npm install @prisma/client
+npx shadcn@latest add dialog
+npx shadcn@latest add form
+npx shadcn@latest add select
+npx shadcn@latest add input
+npx shadcn@latest add toast
+
+npm install uploadthing @uploadthing/react
+
+npm run dev     
