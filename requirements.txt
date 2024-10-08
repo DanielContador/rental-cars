@@ -14,4 +14,6 @@ npx shadcn@latest add toast
 
 npm install uploadthing @uploadthing/react
 
+npm install axios
+
 npm run dev     

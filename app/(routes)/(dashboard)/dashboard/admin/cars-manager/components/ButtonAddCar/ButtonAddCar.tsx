@@ -10,7 +10,8 @@ import {
 import { PlusCircle } from "lucide-react"
 import { useState } from "react"
 import { FormAddCar } from "../FormAddCar/FormAddCar"
-  
+
+
 export  function ButtonAddCar() {
     const [openDialog, setOpenDialog] = useState(false)
   return (
@@ -24,7 +25,7 @@ export  function ButtonAddCar() {
         <DialogContent>
             <DialogHeader>
                 <DialogDescription>
-                    <FormAddCar/>
+                    <FormAddCar setOpenDialog={setOpenDialog}/>
                 </DialogDescription>
             </DialogHeader>
         </DialogContent>
