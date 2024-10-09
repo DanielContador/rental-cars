@@ -117,8 +117,8 @@ export  function FormEditCar(props: FormEditCarProps) {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="manual">Manual</SelectItem>
-                    <SelectItem value="automatic">Automático</SelectItem>
+                    <SelectItem value="Manual">Manual</SelectItem>
+                    <SelectItem value="Automatico">Automático</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -190,11 +190,11 @@ export  function FormEditCar(props: FormEditCarProps) {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="sedan">Sedan</SelectItem>
-                    <SelectItem value="sub">Sub</SelectItem>
-                    <SelectItem value="coupe">Coupe</SelectItem>
-                    <SelectItem value="familiar">Familiar</SelectItem>
-                    <SelectItem value="deluxe">Deluxe</SelectItem>
+                    <SelectItem value="Sedan">Sedan</SelectItem>
+                    <SelectItem value="Suv">Suv</SelectItem>
+                    <SelectItem value="Coupe">Coupe</SelectItem>
+                    <SelectItem value="Familiar">Familiar</SelectItem>
+                    <SelectItem value="Deluxe">Deluxe</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
