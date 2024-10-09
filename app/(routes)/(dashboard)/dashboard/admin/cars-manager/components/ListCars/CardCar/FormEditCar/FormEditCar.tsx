@@ -14,52 +14,54 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { formSchema } from "./FormAddCar.form"
+import { formSchema } from "./FormEditCar.form"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { UploadButton } from "@/utils/uploadthing"
 import { useState } from "react"
-import { FormAddCarProps } from "./FormAddCar.types"
 import { toast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
 
-export  function FormAddCar(props : FormAddCarProps) { 
-    const {setOpenDialog} = props
-    const [photoUploaded, setphotoUploaded]  = useState(false)
-    const router = useRouter();
-  
-    // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      nombre: "",
-      hp: "",
-      transmision: "",
-      pasajeros: "",
-      foto: "",
-      motor: "",
-      precioDia: "",
-      tipo: "",
-      publicado: false
-    },
-  })
- 
-  const onSubmit = async(values: z.infer<typeof formSchema>) =>
-  { setOpenDialog(false)
-    try{
-      await axios.post('/api/car', values);
-      toast({
-        title: "Auto agregado ✅"
-      })
-      router.refresh();
-    } catch (error) {
-        toast({
-          title: "Algo salio mal ❕",
-          variant: "destructive"
-          })
-    }
-  };
+import { FormEditCarProps } from "./FormEditCar.types";
 
-  const {isValid} = form.formState
+export  function FormEditCar(props: FormEditCarProps) {
+    const {autoData,setOpenDialog} = props;
+    const [photoUploaded, setphotoUploaded]  = useState(false);
+    const router = useRouter();
+
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+          nombre: autoData.nombre,
+          hp: autoData.hp,
+          transmision: autoData.transmision,
+          pasajeros: autoData.pasajeros,
+          foto: autoData.foto,
+          motor: autoData.motor,
+          precioDia: autoData.precioDia,
+          tipo: autoData.tipo,
+          publicado: autoData.publicado ? autoData.publicado : false
+        },
+      });
+
+      const {isValid} = form.formState
+
+      const onSubmit = async (values:z.infer<typeof formSchema>)=>{
+        setOpenDialog(false)
+
+        try {
+            await axios.patch(`/api/car/${autoData.id}/form`, values);
+            toast({
+                title: "Auto editado ✅"
+            })
+            router.refresh()
+        } catch (error) {
+            toast({
+                title: "Algo sucedio ❕",
+                variant: "destructive"
+            })
+        }
+    }   
+
 
   return (
     <Form {...form}>
@@ -248,10 +250,9 @@ export  function FormAddCar(props : FormAddCarProps) {
   
         </div>
         <Button type="submit" className="w-full mt-5" disabled={!isValid}>
-          Agregar Auto
+          Editar Auto
         </Button>
       </form>
   </Form>
-);
-  
+  )
 }
