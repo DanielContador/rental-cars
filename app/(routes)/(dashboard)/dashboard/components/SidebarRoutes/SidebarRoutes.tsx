@@ -8,8 +8,8 @@ export  function SidebarRoutes() {
     /*const { userId } = useAuth();*/
 
   return (
-    <div className="flex flex-col justify-between h-full">
-        <div>
+    <div className="flex flex-col justify-between h-full bg-white">
+        <div >
             <div className="p-2 md:p-8 text-2xl ">
               <p className="mb-3 text-slate-500 text-xl">GENERAL</p>
               <div className="font-bold">
