@@ -12,6 +12,10 @@ npx shadcn@latest add select
 npx shadcn@latest add input
 npx shadcn@latest add toast
 
+npx shadcn@latest add alert-dialog
+npx shadcn@latest add calendar
+npx shadcn@latest add popover
+
 npm install uploadthing @uploadthing/react
 
 npm install axios

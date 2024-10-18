@@ -65,10 +65,10 @@ export  function FormAddCar(props : FormAddCarProps) {
     <Form {...form}>
         <form 
           onSubmit={form.handleSubmit(onSubmit)} 
-          className="space-y-8 bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl"
+          className="space-y-8"
         >
         {/* Grid para organizar los campos */}
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2 ">
   
           {/* Primer FormField */}
           <FormField
