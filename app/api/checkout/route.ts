@@ -84,7 +84,7 @@ export async function POST(req: Request) {
     application_context: {
       // return_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-confirmation?orderId=${order.id}`, // Set return URL after successful payment
       // cancel_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-error?orderId=${order.id}`, // Set cancel URL if user cancels payment
-      return_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/dashboard`, // Set return URL after successful payment
+      return_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-confirmation`, // Set return URL after successful payment
       cancel_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/dashboard`, // Set cancel URL if user cancels payment
     },
   });
