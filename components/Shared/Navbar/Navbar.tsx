@@ -12,11 +12,11 @@ export function Navbar() {
         <div className="max-w-5xl py-5 mx-auto">
             <div className="justify-between lg:flex">
                 <Link href="/" className="flex items-center justify-center gap-x-2">
-                    <Image src="/logo.svg" alt="TarreCars" width={50} height={50} />
-                    <span className="text-xl font-bold">TarreCars</span>
+                    <Image src="/logo.svg" alt="RentalCars" width={50} height={50} />
+                    <span className="text-xl font-bold">RentalCars</span>
                 </Link>
                 <div className="flex items-center justify-center gap-x-7">
-                    <Link href="/cars">List Cars</Link>
+                    <Link href="/cars">Lista de autos</Link>
                     <Link href="/dashboard">Dashboard</Link>
                     {userId ? (
                         <>

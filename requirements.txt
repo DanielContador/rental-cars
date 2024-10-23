@@ -20,4 +20,10 @@ npm install uploadthing @uploadthing/react
 
 npm install axios
 
+npm install zustand
+
 npm run dev     
+
+## pp account
+# rentalejemplo1@gmail.com
+# nose12345

@@ -29,6 +29,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
     from: new Date(),
     to: addDays(new Date(), 5)
   })
+
   const autoReservado = async (auto: Auto, dateSelected: DateRange) => {
     const response= await axios.post("/api/checkout", {
       autoId: auto.id,
@@ -39,7 +40,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
     });
     window.location = response.data.url;
     toast({
-      title: "Car reserved"
+      title: "Auto reservado ✅"
     });
   };
 
