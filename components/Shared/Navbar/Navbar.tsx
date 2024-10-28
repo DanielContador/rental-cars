@@ -16,8 +16,8 @@ export function Navbar() {
                     <span className="text-xl font-bold">RentalCars</span>
                 </Link>
                 <div className="flex items-center justify-center gap-x-7">
-                    <Link href="/cars">Lista de autos</Link>
-                    <Link href="/dashboard">Dashboard</Link>
+                    <Link href="/dashboard">Lista de autos</Link>
+                    <Link href="/reserves">Mis reservas</Link>
                     {userId ? (
                         <>
                             <Link href="/loved-cars">

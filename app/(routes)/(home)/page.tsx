@@ -1,10 +1,10 @@
-import { NavbarDashboard } from "../(dashboard)/dashboard/components/NavbarDashboard";
+import { Navbar } from "@/components/Shared/Navbar";
 import { FirtsBlock } from "./components/FirtsBlock";
 
 export default function Home() {
   return (
     <div>
-    <NavbarDashboard/>
+    <Navbar/>
     <FirtsBlock/>
     </div>
   );
