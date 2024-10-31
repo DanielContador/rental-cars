@@ -10,7 +10,7 @@ export default function pageLovedCard() {
   }
   return (
     <div>
-      <h1 className="text-2xl">Coches que me gustan</h1>
+      <h1 className="text-2xl">Autos que me gustan</h1>
 
       <ListLovedCars/>
     </div>

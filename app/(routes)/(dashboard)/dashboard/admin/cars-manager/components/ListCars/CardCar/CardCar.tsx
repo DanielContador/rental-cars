@@ -8,10 +8,24 @@ import { CardCarProps } from "./CardCar.type";
 import { ButtonEditCar } from "./ButtonEditCar";
 import { toast } from "@/hooks/use-toast";
 import axios from "axios";
-
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+  } from "@/components/ui/alert-dialog"; 
+import { useState } from "react";
+  
+  
 export  function CardCar(props: CardCarProps) {
     const { auto } = props;
     const router = useRouter();
+    const [confirmingDelete, setConfirmingDelete] = useState(false); 
 
     const eliminarAuto = async()=>{
         try{
@@ -104,10 +118,36 @@ export  function CardCar(props: CardCarProps) {
         </div>
 
         <div className="flex justify-between mt-3 gap-x-4">
-            <Button variant="outline" onClick={eliminarAuto}>
-                Borrar
-                <Trash className="w-4 h-4 ml-2" />
-            </Button>
+        <AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button variant="outline" onClick={() => setConfirmingDelete(true)}>
+      Borrar
+      <Trash className="w-4 h-4 ml-2" />
+    </Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Confirmar Eliminación</AlertDialogTitle>
+      <AlertDialogDescription>
+        ¿Estás seguro de que deseas eliminar este auto?
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel onClick={() => setConfirmingDelete(false)}>
+        Cancelar
+      </AlertDialogCancel>
+      <AlertDialogAction
+        onClick={() => {
+          eliminarAuto();
+          setConfirmingDelete(false); // Close the dialog after deletion
+        }}
+      >
+        Confirmar
+      </AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+
 
             <ButtonEditCar autoData = {auto}/>
         </div>
