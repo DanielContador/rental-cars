@@ -12,6 +12,9 @@ export default async function pageReservesAdmin() {
   }
 
   const ordenes = await db.orden.findMany({
+    where: {
+      estado: "confirmed", // Agrega esta condición para filtrar por estado
+    },
     orderBy: {
       creado: "desc",
     },

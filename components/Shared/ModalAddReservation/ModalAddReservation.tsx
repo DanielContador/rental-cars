@@ -35,6 +35,18 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
   const autoReservado = async (auto: Auto, dateSelected: DateRange) => {
     setLoading(true); // Set loading to true
     try {
+    // Guardar todos los datos de la orden en sessionStorage
+    // Store each property separately in sessionStorage
+    sessionStorage.setItem("autoId", auto.id);
+    sessionStorage.setItem("precioDia", auto.precioDia.toString());
+
+      // Check if dateSelected.from and dateSelected.to are defined
+      const startDate = dateSelected.from ? dateSelected.from.toISOString() : new Date().toISOString();
+      const endDate = dateSelected.to ? dateSelected.to.toISOString() : new Date().toISOString();
+      
+      sessionStorage.setItem("ordenInicio", startDate);
+      sessionStorage.setItem("ordenFin", endDate);
+    sessionStorage.setItem("nombreAuto", auto.nombre);
       const response = await axios.post("/api/checkout", {
         autoId: auto.id,
         precioDia: auto.precioDia,
@@ -44,7 +56,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
       });
       window.location = response.data.url;
       toast({
-        title: "Auto reservado ✅",
+        title: "Orden creada ✅",
       });
     } catch (error) {
       toast({

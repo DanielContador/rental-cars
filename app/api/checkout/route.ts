@@ -61,7 +61,7 @@ export async function POST(req: Request) {
       autoId: autoId,
       nombreAuto: car.nombre, // Set the car's name from the fetched car details
       userId: userId, // Associate order with the authenticated user
-      estado: "confirmed", // Set order status to "confirmed"
+      estado: "pendiente", // Set order status to "confirmed"
       montoTotal: montoTotal.toString(), // Store the total amount as a string in the database
       ordenInicio: start, // Store the start date (ensure it's in DateTime format)
       ordenFin: end, // Store the end date (ensure it's in DateTime format)
@@ -77,14 +77,15 @@ export async function POST(req: Request) {
         description: `Car Reservation: ${car.nombre}`, // Set description of the purchase
         amount: {
           currency_code: 'USD', // Use USD as the currency
-          value: (montoTotal/1000).toFixed(2), // Set the total amount, ensure it's formatted to two decimal places
+          value: (montoTotal / 1000).toFixed(2), // Set the total amount, ensure it's formatted to two decimal places
         },
       },
     ],
     application_context: {
       // return_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-confirmation?orderId=${order.id}`, // Set return URL after successful payment
       // cancel_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-error?orderId=${order.id}`, // Set cancel URL if user cancels payment
-      return_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/order-confirmation`, // Set return URL after successful payment
+      return_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/api/capture-payments?ordenID=${order.id}`,
+      // Set return URL after successful payment
       cancel_url: `${process.env.NEXT_PUBLIC_FRONTEND_STORE_URL}/dashboard`, // Set cancel URL if user cancels payment
     },
   });
