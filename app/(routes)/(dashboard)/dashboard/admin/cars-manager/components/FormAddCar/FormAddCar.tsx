@@ -62,6 +62,15 @@ export  function FormAddCar(props : FormAddCarProps) {
   const {isValid} = form.formState
 
   return (
+    <div className="relative">
+    {/* Copy this button to close the dialog */}
+    <button
+      className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+      onClick={() => setOpenDialog(false)}  // <-- Copy this line
+    >
+      &times; {/* Close icon (cross) */}
+    </button>
+    
     <Form {...form}>
         <form 
           onSubmit={form.handleSubmit(onSubmit)} 
@@ -252,6 +261,8 @@ export  function FormAddCar(props : FormAddCarProps) {
         </Button>
       </form>
   </Form>
+
+  </div>
 );
   
 }
