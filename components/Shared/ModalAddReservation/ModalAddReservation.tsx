@@ -19,8 +19,11 @@ import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import axios from "axios";
 import { ClipLoader } from "react-spinners"; //
+
+import { useEffect } from "react";
 export function ModalAddReservation(props: ModalAddReservationProps) {
   const { auto } = props;
+  const [reservedDates, setReservedDates] = useState([]);
   const [dateSelected, setDateSelected] = useState<{
     from: Date | undefined;
     to: Date | undefined;
@@ -28,6 +31,22 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
     from: new Date(),
     to: addDays(new Date(), 5),
   });
+
+  useEffect(() => {
+    const fetchReservedDates = async () => {
+      try {
+        const response = await axios.post("/api/get-reserved-dates", {
+          autoId: auto.id,
+        });
+        setReservedDates(response.data);
+      } catch (error) {
+        console.error("Error fetching reserved dates:", error);
+      }
+    };
+
+    fetchReservedDates();
+  }, [auto.id]);
+
 
   const [confirming, setConfirming] = useState(false); // State for confirmation dialog
   const [loading, setLoading] = useState(false); // State for loading animation
@@ -83,8 +102,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
           <AlertDialogDescription>
             <CalendarSelector
               setDateSelected={setDateSelected}
-              autoPrecioDia={auto.precioDia}
-            />
+              autoPrecioDia={auto.precioDia} reservedDates={reservedDates}            />
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

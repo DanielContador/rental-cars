@@ -9,14 +9,13 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { CalendarSelectorProps } from "./CalendarSelector.types";
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-
+import { isWithinInterval } from "date-fns";
 export function CalendarSelector(props: CalendarSelectorProps) {
-  const { setDateSelected, className, autoPrecioDia } = props;
-  const [date, setDate] = useState<DateRange | undefined>({
-    from: startOfToday(),
-    to: addDays(startOfToday(), 5)
-  });
+  const { setDateSelected, className, autoPrecioDia,reservedDates } = props;
+  
+  const [date, setDate] = useState<DateRange | undefined>(undefined);
 
+  
   useEffect(() => {
     setDateSelected({
       from: date?.from,
@@ -34,7 +33,15 @@ export function CalendarSelector(props: CalendarSelectorProps) {
 
   // Function to disable past dates
   const isDateDisabled = (date: Date) => {
-    return isBefore(date, startOfToday());
+    return (
+      isBefore(date, startOfToday()) ||
+      reservedDates.some((range: { ordenInicio: string; ordenFin: string }) =>
+        isWithinInterval(date, {
+          start: new Date(range.ordenInicio),
+          end: new Date(range.ordenFin),
+        })
+      )
+    );
   };
 
   return (

@@ -3,4 +3,5 @@ export type  CalendarSelectorProps = React.HTMLAttributes<HTMLDivElement> & {
     React.SetStateAction<{ from: Date | undefined; to: Date | undefined }>
 >;
 autoPrecioDia: string;
+reservedDates: { ordenInicio: string; ordenFin: string }[]; 
 }
