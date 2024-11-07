@@ -29,3 +29,7 @@ npm run dev
 ## pp account
 # rentalejemplo1@gmail.com
 # nose12345
+
+## admin account
+# ejemplorentalcars@gmail.com
+# admin123456789.

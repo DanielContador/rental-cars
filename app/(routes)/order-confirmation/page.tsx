@@ -11,8 +11,8 @@ export default function OrderConfirmationPage() {
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           <h1 className="text-2xl">¡Muchas gracias por confiar en nosotros!</h1>
           <p>Tu pago se ha confirmado con éxito y pronto recibirás toda la información por correo electrónico.</p>
-          <Link href="/">
-            <Button>Volver a ver los productos</Button>
+          <Link href="/autos">
+            <Button>Volver a ver más autos</Button>
           </Link>
         </div>
       </div>

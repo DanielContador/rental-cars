@@ -29,8 +29,9 @@ export default async function pageReserves() {
         <div className="flex flex-col justify-center gap-4 items-center">
             <h2 className="text-xl"> No tienes ninguna reserva hecha </h2>
             <p>Realiza tus reservas en la pagina de autos</p>
-            <Link href="/cars"/>
-                <Button>Lista de autos</Button>
+            <Link href="/autos">
+              <Button>Lista de autos</Button>
+            </Link>
         </div>
       ):(
         <TableReserves ordenes={ordenes}/>

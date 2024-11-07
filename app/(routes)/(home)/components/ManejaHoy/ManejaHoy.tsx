@@ -13,7 +13,7 @@ export function ManejaHoy() {
             <p className="text-white text-xl my-5">
             Regístrese y explore el mundo de los autos premium.
             </p>
-            <Link href="/sign-in">
+            <Link href="/sign-up">
               <Button variant="outline" size="lg" className="text-white">
                 Registarme aqui
               </Button>

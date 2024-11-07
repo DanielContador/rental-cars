@@ -2,12 +2,13 @@ import { db } from "@/lib/db";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { TableReserves } from "./components/TableReserves";
+import { isAdmin } from "@/lib/isAdmin";
 
 export default async function pageReservesAdmin() {
   const { userId } = auth();
   const user = await currentUser();
 
-  if (!userId || !user ) {
+  if (!userId || !user || !isAdmin(userId)) {
     return redirect("/");
   }
 

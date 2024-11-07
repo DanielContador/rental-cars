@@ -52,7 +52,7 @@ export  function CardCar(props: CardCarProps) {
             })
         }else{
             toast({
-                title: "Auto despublicado 🔒"
+                title: "Auto archivado 🔒"
             })
         }
         router.refresh()
@@ -158,7 +158,7 @@ export  function CardCar(props: CardCarProps) {
                 variant="outline"
                 onClick={() => handlerPublicarAuto(false)}
             >
-                Despublicar
+                Archivar
                 <Upload className="w-4 h-4 ml-2" />
             </Button> 
         ) : ( 

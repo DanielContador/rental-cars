@@ -60,7 +60,7 @@ export  function OurFleet() {
       </div>
       <Link href="/autos">
         <Button className="rounded-xl p-6 text-lg mt-5" variant="outline">
-          ver más modelos
+          Ver más autos!
           <MoveRight className="ml-2" />
         </Button>
       </Link>
