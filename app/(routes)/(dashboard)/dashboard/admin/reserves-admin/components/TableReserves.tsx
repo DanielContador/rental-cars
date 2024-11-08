@@ -1,22 +1,40 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+"use client";
+import axios from "axios"; // Asegúrate de importar axios
+import { useState, useEffect } from "react";
+import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { TableReservesProps } from "./TableReserves.types";
-import { formatoPrecio } from "@/lib/formatoPrecio"; 
+import { formatoPrecio } from "@/lib/formatoPrecio";
 
 export function TableReserves(props: TableReservesProps) {
   const { ordenes } = props;
 
-  const montoTotal = ordenes.reduce((acc, booking) => {
-    return acc + parseFloat(booking.montoTotal);
-  }, 0);
+  // Estado para los nombres de los usuarios y el estado de carga
+  const [users, setUsers] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState<boolean>(true); 
+
+  // UseEffect para hacer la llamada a la API cuando las ordenes cambien
+  useEffect(() => {
+    const fetchUserNames = async () => {
+      const userIds = ordenes.map(order => order.userId).join(",");  // Extraer los userIds de las ordenes
+
+      try {
+        // Usamos axios para hacer la solicitud GET
+        const response = await axios.get(`/api/getUserNames?userIds=${userIds}`);
+        setUsers(response.data); // Guardamos los nombres de usuario
+        setLoading(false); // Establecemos el estado de carga como false
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setLoading(false); // Aseguramos que el estado de carga se apague, incluso en caso de error
+      }
+    };
+
+    if (ordenes.length > 0) {
+      fetchUserNames(); // Solo hacemos la llamada si hay ordenes
+    }
+  }, [ordenes]); // El useEffect se ejecuta cada vez que cambian las ordenes
+
+  // Calcular el monto total de todas las ordenes
+  const montoTotal = ordenes.reduce((acc, booking) => acc + parseFloat(booking.montoTotal), 0);
 
   return (
     <Table>
@@ -24,7 +42,7 @@ export function TableReserves(props: TableReservesProps) {
       <TableHeader>
         <TableRow>
           <TableHead>Order Date</TableHead>
-          <TableHead>Customer ID</TableHead>
+          <TableHead>Customer Name</TableHead> 
           <TableHead>Car</TableHead>
           <TableHead>Date Start</TableHead>
           <TableHead>Date End</TableHead>
@@ -42,11 +60,10 @@ export function TableReserves(props: TableReservesProps) {
               })}
             </TableCell>
             <TableCell className="font-medium max-w-[100px] truncate">
-              {order.userId}
+              {/* Mostrar el nombre del usuario o "Loading..." mientras se carga */}
+              {loading ? "Loading..." : users[order.userId] || "Unknown User"}
             </TableCell>
-            <TableCell className="font-medium truncate">
-              {order.nombreAuto}
-            </TableCell>
+            <TableCell className="font-medium truncate">{order.nombreAuto}</TableCell>
             <TableCell>
               {new Date(order.ordenInicio).toLocaleDateString("es-ES", {
                 day: "2-digit",
