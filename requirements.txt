@@ -22,6 +22,7 @@ npm install axios
 
 npm install zustand
 npx shadcn@latest add table
+npm install @clerk/clerk-sdk-node
 
 
 npm run dev     

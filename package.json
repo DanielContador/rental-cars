@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/clerk-sdk-node": "^5.0.66",
     "@clerk/nextjs": "^5.7.1",
     "@hookform/resolvers": "^3.9.0",
     "@paypal/checkout-server-sdk": "^1.0.3",

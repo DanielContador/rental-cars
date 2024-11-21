@@ -41,12 +41,12 @@ export function TableReserves(props: TableReservesProps) {
       <TableCaption>A list of your recent bookings.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead>Order Date</TableHead>
-          <TableHead>Customer Name</TableHead> 
-          <TableHead>Car</TableHead>
-          <TableHead>Date Start</TableHead>
-          <TableHead>Date End</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
+          <TableHead>Fecha de Orden</TableHead>
+          <TableHead>Nombre de usuario</TableHead> 
+          <TableHead>Auto</TableHead>
+          <TableHead>Fecha inicio</TableHead>
+          <TableHead>Fecha fin</TableHead>
+          <TableHead className="text-right">Monto</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
