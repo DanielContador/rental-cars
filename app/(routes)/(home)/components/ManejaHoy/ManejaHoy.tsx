@@ -11,11 +11,11 @@ export function ManejaHoy() {
           <div>
             <h3 className="text-4xl text-white">Conduce el coche de tus sueños</h3>
             <p className="text-white text-xl my-5">
-            Regístrese y explore el mundo de los autos premium.
+            Regístrate y explora el mundo de los autos premium.
             </p>
             <Link href="/sign-up">
               <Button variant="outline" size="lg" className="text-white">
-                Registarme aqui
+                Registrarme aquí
               </Button>
             </Link>
           </div>

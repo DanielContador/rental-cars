@@ -12,7 +12,7 @@ export  function FirtsBlock() {
         </h1>
         <p className="text-lg mt-2 lg:mt-5 lg:text-xl max-w-sm">
                 No te resistas al placer de conducir los mejores autos 
-                que RentalCars te pueda ofrecer, renta tu auto aqui y ahora
+                que RentalCars te pueda ofrecer, renta tu auto aquí y ahora
         </p>
       </Reveal>  
       
