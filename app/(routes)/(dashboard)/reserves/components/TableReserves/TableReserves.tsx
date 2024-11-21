@@ -21,7 +21,7 @@ export  function TableReserves(props: TableReservesProps) {
 
   return (
     <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableCaption>Lista de reservas.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead className="w-[100px]">Autos</TableHead>

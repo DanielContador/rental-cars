@@ -42,7 +42,7 @@ export  function FiltrarAutos(props: FiltrarAutosProps) {
             <SelectContent>
                 <SelectGroup>
                     <SelectLabel>Cambio de marchas</SelectLabel>
-                        <SelectItem value="automatico">Automatico</SelectItem>
+                        <SelectItem value="automatico">Automático</SelectItem>
                         <SelectItem value="manual">Manual</SelectItem>
                 </SelectGroup>
             </SelectContent>
@@ -57,8 +57,8 @@ export  function FiltrarAutos(props: FiltrarAutosProps) {
                     <SelectLabel>Tipo de motor</SelectLabel>
                         <SelectItem value="gasolina">Gasolina</SelectItem>
                         <SelectItem value="petrolero">Petrolero</SelectItem>
-                        <SelectItem value="electrico">Electrico</SelectItem>
-                        <SelectItem value="hibrido">Hibrido</SelectItem>
+                        <SelectItem value="electrico">Eléctrico</SelectItem>
+                        <SelectItem value="hibrido">Híbrido</SelectItem>
                 </SelectGroup>
             </SelectContent>
         </Select>
@@ -69,7 +69,7 @@ export  function FiltrarAutos(props: FiltrarAutosProps) {
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>
-                    <SelectLabel>Personasr</SelectLabel>
+                    <SelectLabel>Personas</SelectLabel>
                         <SelectItem value="2">2</SelectItem>
                         <SelectItem value="4">4</SelectItem>
                         <SelectItem value="5">5</SelectItem>

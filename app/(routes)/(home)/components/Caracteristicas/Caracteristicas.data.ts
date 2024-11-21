@@ -9,13 +9,13 @@ export const dataCaracteristicas = [
     },
     {
         icon: MessageCircleQuestion,
-        text: "Atención tecnica 24/7",
+        text: "Atención técnica 24/7",
         bg: "bg-indigo-100",
         delay: 1.2,
     },
     {
         icon: ShieldCheck,
-        text: "Seguro incluído",
+        text: "Seguro incluido",
         bg: "bg-slate-100",
         delay: 1.3,
     },

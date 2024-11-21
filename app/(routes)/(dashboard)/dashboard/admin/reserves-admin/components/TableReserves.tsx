@@ -38,7 +38,7 @@ export function TableReserves(props: TableReservesProps) {
 
   return (
     <Table>
-      <TableCaption>A list of your recent bookings.</TableCaption>
+      <TableCaption>Reservas recientes</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Fecha de Orden</TableHead>
