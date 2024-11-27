@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+✨ Aplicación Web RentalCars ✨
 
-## Getting Started
+Rentalcars es una aplicación web que ofrece una experiencia intuitiva y funcional tanto para clientes como para administradores, facilitando el arriendo de vehículos con tecnologías modernas y una interfaz amigable. ⛵
 
-First, run the development server:
+📚 Tecnologías Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Next.js y React: Arquitectura moderna para el desarrollo de la interfaz de usuario y manejo eficiente de rutas.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+TailwindCSS: Diseño responsivo y estilizado para una experiencia visual atractiva.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Prisma: Base de datos moderna para el manejo y consultas eficientes de datos.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Clerk: Implementación de autenticación segura y sencilla.
 
-## Learn More
+Uploadthing: Alojamiento de imágenes rápido y confiable.
 
-To learn more about Next.js, take a look at the following resources:
+PayPal: Pasarela de pagos segura para transacciones fáciles y confiables.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🚗 Características Principales
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🏢 Para los Administradores
 
-## Deploy on Vercel
+Panel de Administración:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Agregar, editar y eliminar vehículos.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Administrar disponibilidad de vehículos con calendarios interactivos.
+
+🚜 Para los Clientes
+
+Exploración de Vehículos: Interfaz intuitiva para buscar y visualizar vehículos disponibles.
+
+Favoritos: Guardar vehículos en una lista de favoritos para arrendarlos más tarde.
+
+Disponibilidad Dinámica: Calendarios que muestran en tiempo real la disponibilidad de los vehículos.
+
+Pagos Seguros: Integración con PayPal para garantizar una experiencia de pago sin complicaciones.
+
+⚖️ Roles de Usuario
+
+Administrador: Gestiona el inventario de vehículos, administra la disponibilidad y supervisa las operaciones.
+
+Cliente: Explora vehículos, guarda favoritos y realiza reservas.
+
+🌐 Características Adicionales
+
+Interfaz Intuitiva y Amigable: Diseñada para ofrecer una experiencia de usuario óptima.
+
+Alojamiento de Imágenes: Fotografías de alta calidad de los vehículos para mejorar la experiencia visual.
+
+Seguridad: Sistema de autenticación robusto para proteger los datos de los usuarios.
+
+💡 Notas
+
+Esta aplicación ha sido diseñada para ofrecer una experiencia completa y fluida a usuarios y administradores, integrando las mejores tecnologías del mercado.
+
