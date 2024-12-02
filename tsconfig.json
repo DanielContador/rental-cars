@@ -18,11 +18,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    
     "plugins": [
       {
         "name": "next"
       }
     ],
+    
     "paths": {
       "@/*": [
         "./*"
@@ -34,7 +36,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/types/app/layout.tsx"
+    ".next/types/app/layout.tsx",
+    "**/*.ts", "**/*.tsx", "paypal.d.ts"
   ],
   "exclude": [
     "node_modules"
