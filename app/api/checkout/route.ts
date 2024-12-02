@@ -3,14 +3,14 @@
 import { NextResponse } from 'next/server'; // Import Next.js server response helper
 import { db } from '@/lib/db'; // Import the Prisma database instance
 import { auth } from '@clerk/nextjs/server'; // Import authentication middleware from Clerk
-const paypal = require('@paypal/checkout-server-sdk'); // Import PayPal SDK
+import paypal from '@paypal/checkout-server-sdk';
 
 // PayPal environment configuration
 const clientId = process.env.PAYPAL_CLIENT_ID; // Your PayPal client ID (from environment variables)
 const clientSecret = process.env.PAYPAL_CLIENT_SECRET; // Your PayPal client secret (from environment variables)
 
 // PayPal environment setup for Sandbox (for testing). For production, you would use LiveEnvironment
-const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
+const environment = new paypal.core.SandboxEnvironment(clientId ||"", clientSecret||"");
 const payPalClient = new paypal.core.PayPalHttpClient(environment);
 
 // CORS headers to allow cross-origin requests (you might want to restrict this in production)
@@ -23,7 +23,7 @@ const corsHeaders = {
 // Handler for POST requests
 export async function POST(req: Request) {
   const { userId } = auth(); // Get the authenticated user ID from Clerk
-  const { autoId, precioDia, ordenInicio, ordenFin, nombre } = await req.json(); // Extract request body
+  const { autoId, precioDia, ordenInicio, ordenFin } = await req.json(); // Extract request body
 
   // Check if the user is authenticated
   if (!userId) {
