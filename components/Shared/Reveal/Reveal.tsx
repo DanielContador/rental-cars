@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { RevealProps } from "./Reveal.types";

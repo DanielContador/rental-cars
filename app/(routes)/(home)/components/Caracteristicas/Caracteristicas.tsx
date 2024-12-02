@@ -1,4 +1,4 @@
-import { Icon } from "lucide-react";
+
 import { dataCaracteristicas } from "./Caracteristicas.data"
 import { Reveal } from "@/components/Shared/Reveal";
 

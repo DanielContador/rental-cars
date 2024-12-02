@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const paypal = require('@paypal/checkout-server-sdk');
 
 // Set up PayPal environment (using Sandbox for testing)

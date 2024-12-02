@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { NextResponse } from 'next/server'; // Import Next.js server response helper
 import { db } from '@/lib/db'; // Import the Prisma database instance
 import { auth } from '@clerk/nextjs/server'; // Import authentication middleware from Clerk

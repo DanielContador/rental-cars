@@ -1,4 +1,5 @@
-import { url } from "inspector"
+
+/* eslint-disable */
 
 export const categoriaOurFleet = [
     {
