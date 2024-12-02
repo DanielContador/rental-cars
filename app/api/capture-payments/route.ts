@@ -1,7 +1,8 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-const paypal = require('@paypal/checkout-server-sdk');
+import paypal from '@paypal/checkout-server-sdk';
+
 
 const clientId = process.env.PAYPAL_CLIENT_ID!;
 const clientSecret = process.env.PAYPAL_CLIENT_SECRET!;
@@ -22,10 +23,12 @@ export async function GET(req: NextRequest) {
   }
 
   const capturePaymentRequest = new paypal.orders.OrdersCaptureRequest(token);
-  capturePaymentRequest.requestBody({});
+
+
+
 
   try {
-    const response = await payPalClient.execute(capturePaymentRequest);
+    await payPalClient.execute(capturePaymentRequest);
     await db.orden.update({
       where: { id: orderid },
       data: { estado: 'confirmed' },
